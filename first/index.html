@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <h1>Mini Calculator</h1>
+      <input type="text" class="" id="num1" />
+      <input type="text" class="" id="num2" />
+      <button id="plus" onclick="arithmetic('add')">+</button>
+      <button id="minus" onclick="arithmetic('minus')">-</button>
+      <button id="multiply" onclick="arithmetic('mult')">*</button>
+      <button id="divide" onclick="arithmetic('div')">/</button>
+      <p id="result">The Result is</p>
+      <h1>Guess the Number</h1>
+      <input type="text" id="guessInput" />
+      <button onclick="guess()">Guess</button>
+      <div class="answer">
+        <p id="guessResult">You have not guessed the number</p>
+      </div>
+      <h1>Change background color</h1>
+      <button onclick="bckgrnd()">Change</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
