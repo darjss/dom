@@ -42,3 +42,4 @@ const bckgrnd = () => {
     "container"
   ).style.backgroundColor = `rgb(${r},${g},${b})`;
 };
+setInterval(bckgrnd(),100);
