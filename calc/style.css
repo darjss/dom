@@ -3,37 +3,52 @@
   padding: 0;
   margin: 0;
 }
-button {
-  border: none;
-  background-color: salmon;
-  padding: 10px;
-  border-radius: 5px;
-}
-.box {
-  width: 100px;
-  height: 100px;
-  border: solid black 1px;
-}
 .container {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
   width: 100vw;
-  background-color: blanchedalmond;
+  height: 100vh;
+  background-color: darksalmon;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-.boxContainer {
-  padding: 50px 0;
+.calc {
+  border: 1px solid lightgoldenrodyellow;
+  width: 450px;
+  height: 670px;
+  border-radius: 8px;
+}
+.display {
+  width: 100%;
+  height: 20%;
+  background-color: cornsilk;
+  border-radius: 8px;
+  font-size: 72px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+.buttonContainer {
+  width: 100%;
+  height: 80%;
+  background-color: lightcyan;
+  border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
+  justify-content: center;
+  padding: 5px;
 }
-.diff {
+.calcButton {
+  width: 23%;
+  height: 18%;
+  background-color: cornflowerblue;
+  border-radius: 5px;
   display: flex;
-  gap: 10px;
-  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
+  color: antiquewhite;
+  font-size: 32px;
 }
-.text{
-    display: none;
+.wide{
+    width: 48%;
 }
