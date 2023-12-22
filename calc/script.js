@@ -10,6 +10,10 @@ display.appendChild(text);
 let btnCont = document.createElement("div");
 btnCont.className = "buttonContainer";
 calc.appendChild(btnCont);
+let num1 = "";
+let num2 = "";
+let answer = "";
+let operation = "";
 content = [
   "AC",
   "+/-",
@@ -32,10 +36,12 @@ content = [
   "=",
 ];
 const writeOnClick = (a) => {
-  text.innerText += a.innerText;
+  text.innerText += a;
 };
 const reset = () => {
   text.innerText = "";
+  num1 = "";
+  operation = "";
 };
 const checkNum = (num) => {
   let result = false;
@@ -43,9 +49,47 @@ const checkNum = (num) => {
   for (let i = 0; i < 10; i++) {
     n === i ? (result = true) : null;
   }
-  console.log(result);
+  // !(answer == "") ? (text.innerText = "") : null;
   return result;
 };
+const checkOp = (op) => {
+  let result=true;
+  op == "/" || op == "x" || op == "-" || op == "+"
+    ? (operation = op)
+    : result=false;
+  console.log(operation);
+  return result;
+};
+const nextNum = () => {
+  if (!(num1 == "")) {
+    calculate();
+  } else {
+    num1 = Number(text.innerHTML);
+    text.innerHTML = "";
+  }
+};
+const calculate = () => {
+  num2 = Number(text.innerHTML);
+  operation == "/"
+    ? (answer = num1 / num2)
+    : operation == "x"
+    ? (answer = num1 * num2)
+    : operation == "-"
+    ? (answer = num1 - num2)
+    : operation == "+"
+    ? (answer = num1 + num2)
+    : null;
+  text.innerText = answer;
+  console.log(num1);
+  console.log(operation);
+  console.log(num2);
+  console.log(answer);
+  num1 = text.innerText;
+  console.log(num1);
+};
+const negate=()=>{
+  text.innerText[0]=="-" ? text.innerText=text.innerText.slice(0,0) : text.innerText="-"+text.innerText;
+}
 for (let i = 0; i < 19; i++) {
   let btn = document.createElement("div");
   btn.innerText = content[i];
@@ -55,10 +99,12 @@ for (let i = 0; i < 19; i++) {
     ? (btn.className = "calcButton wide")
     : (btn.className = "calcButton");
   btn.addEventListener("click", () => {
-    checkNum(btn.innerText)
-      ? writeOnClick(btn)
+    checkNum(btn.innerText) || i == 17
+      ? writeOnClick(btn.innerText)
+      : checkOp(btn.innerText)
+      ? nextNum()
       : i == 18
-      ? calculate(btn)
+      ? calculate()
       : i == 0
       ? reset(btn)
       : i == 1
