@@ -15,14 +15,16 @@
 .box{
     width: 100px;
     height: 100px;
-    background-color: lightsalmon;
-    border-radius: 5px;
+    background-color: rgb(255, 160, 122);
+    border-radius: 50%;
 }
 .case{
     width: 1000px;
-    height: 200px;
+    /* height: 500px; */
     background-color: antiquewhite;
     gap: 10px;
+    display:flex;
+    flex-wrap: wrap;
 }
 .flex{
     display: flex;

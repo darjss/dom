@@ -14,6 +14,8 @@ const addElement = () => {
   box.classList = "box flex";
   box.innerText = count;
   document.getElementById("boxCase").appendChild(box);
+  let red=255-count*3;
+  box.style.backgroundColor=`rgb(${red},160,122)`
   count++;
 };
 const addAnyElement=()=>{
@@ -22,5 +24,6 @@ const addAnyElement=()=>{
     for(let i=0; i<num; i++){
         addElement();
     }
-    count=1;
+    // count=1;
+
 }

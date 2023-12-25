@@ -41,6 +41,7 @@ const writeOnClick = (a) => {
 const reset = () => {
   text.innerText = "";
   num1 = "";
+  num2=""
   operation = "";
 };
 const checkNum = (num) => {
@@ -53,15 +54,23 @@ const checkNum = (num) => {
   return result;
 };
 const checkOp = (op) => {
-  let result=true;
-  op == "/" || op == "x" || op == "-" || op == "+"
-    ? (operation = op)
-    : result=false;
+  let result = true;
+
+  if(op == "/" || op == "x" || op == "-" || op == "+"){
+    operation = op;
+    console.log(operation);
+    if(!(answer=="")){
+      text.innerText="";
+    }
+  }else{
+    result = false;
+
+  }
   console.log(operation);
   return result;
 };
 const nextNum = () => {
-  if (!(num1 == "")) {
+  if (!(num1 == "") && answer=="") {
     calculate();
   } else {
     num1 = Number(text.innerHTML);
@@ -84,12 +93,15 @@ const calculate = () => {
   console.log(operation);
   console.log(num2);
   console.log(answer);
-  num1 = text.innerText;
+  num1 = Number(text.innerText);
+  num2 = "";
   console.log(num1);
 };
-const negate=()=>{
-  text.innerText[0]=="-" ? text.innerText=text.innerText.slice(0,0) : text.innerText="-"+text.innerText;
-}
+const negate = () => {
+  text.innerText[0] == "-"
+    ? (text.innerText = text.innerText.slice(1, text.innerText.length))
+    : (text.innerText = "-" + text.innerText);
+};
 for (let i = 0; i < 19; i++) {
   let btn = document.createElement("div");
   btn.innerText = content[i];
