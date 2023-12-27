@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     name: "Laptop",
     price: 999.99,
     brand: "ExampleBrand",
@@ -9,6 +10,7 @@ const products = [
       "Powerful laptop with high-performance specs for work and entertainment.",
   },
   {
+    id: 2,
     name: "Smartphone",
     price: 499.5,
     brand: "TechCo",
@@ -17,6 +19,7 @@ const products = [
       "Cutting-edge smartphone with advanced features and a sleek design.",
   },
   {
+    id: 3,
     name: "Headphones",
     price: 99.0,
     brand: "AudioTech",
@@ -25,6 +28,7 @@ const products = [
       "Comfortable headphones with excellent sound quality for immersive listening experiences.",
   },
   {
+    id: 4,
     name: "Camera",
     price: 799.0,
     brand: "PhotoTech",
@@ -33,6 +37,7 @@ const products = [
       "Professional-grade camera capturing high-resolution photos and videos.",
   },
   {
+    id: 5,
     name: "Tablet",
     price: 299.99,
     brand: "TabCo",
@@ -41,6 +46,7 @@ const products = [
       "Portable tablet perfect for entertainment and productivity on-the-go.",
   },
   {
+    id: 6,
     name: "Smartwatch",
     price: 199.5,
     brand: "WearableTech",
@@ -49,6 +55,7 @@ const products = [
       "Smartwatch with health-tracking features and a stylish design.",
   },
   {
+    id: 7,
     name: "Desktop Computer",
     price: 1299.0,
     brand: "ExampleBrand",
@@ -57,6 +64,7 @@ const products = [
       "High-performance desktop computer for demanding tasks and gaming.",
   },
   {
+    id: 8,
     name: "Printer",
     price: 149.0,
     brand: "PrintTech",
@@ -64,6 +72,7 @@ const products = [
     description: "Versatile printer suitable for both home and office use.",
   },
   {
+    id: 9,
     name: "Keyboard",
     price: 49.99,
     brand: "InputTech",
@@ -72,6 +81,7 @@ const products = [
       "Ergonomic keyboard designed for comfortable and efficient typing.",
   },
   {
+    id: 10,
     name: "Mouse",
     price: 29.99,
     brand: "InputTech",
@@ -80,6 +90,7 @@ const products = [
       "Responsive and precise mouse for seamless navigation and control.",
   },
   {
+    id: 11,
     name: "Speaker System",
     price: 399.0,
     brand: "AudioTech",
@@ -87,6 +98,7 @@ const products = [
     description: "Immersive speaker system delivering rich and clear audio.",
   },
   {
+    id: 12,
     name: "External Hard Drive",
     price: 129.0,
     brand: "StorageTech",
@@ -94,6 +106,7 @@ const products = [
     description: "High-capacity external hard drive for secure data storage.",
   },
   {
+    id: 13,
     name: "Gaming Console",
     price: 399.0,
     brand: "GameTech",
@@ -102,6 +115,7 @@ const products = [
       "Next-gen gaming console offering stunning graphics and gaming experiences.",
   },
   {
+    id: 14,
     name: "Router",
     price: 79.99,
     brand: "ConnectTech",
@@ -109,6 +123,7 @@ const products = [
     description: "Reliable router providing high-speed internet connectivity.",
   },
   {
+    id: 15,
     name: "Monitor",
     price: 349.5,
     brand: "DisplayTech",
@@ -117,6 +132,7 @@ const products = [
       "High-resolution monitor delivering vibrant and clear visuals.",
   },
   {
+    id: 16,
     name: "Scanner",
     price: 89.0,
     brand: "ScanTech",
@@ -124,6 +140,7 @@ const products = [
     description: "Efficient scanner for digitizing documents and images.",
   },
   {
+    id: 17,
     name: "Fitness Tracker",
     price: 79.0,
     brand: "FitTech",
@@ -132,6 +149,7 @@ const products = [
       "Fitness tracker monitoring activity levels and health metrics.",
   },
   {
+    id: 18,
     name: "Wireless Earbuds",
     price: 129.0,
     brand: "AudioTech",
@@ -140,6 +158,7 @@ const products = [
       "Wireless earbuds with premium audio quality and long battery life.",
   },
   {
+    id: 19,
     name: "Security Camera",
     price: 199.99,
     brand: "SecureTech",
@@ -148,6 +167,7 @@ const products = [
       "High-definition security camera for home or business surveillance.",
   },
   {
+    id: 20,
     name: "Electric Toothbrush",
     price: 59.5,
     brand: "DentalTech",
@@ -180,4 +200,14 @@ products.map((a) => {
 });
 const result=createCard(products[0]);
 console.log(result);
-  
+const removeProd=(name)=>{
+  let resultArr=products.filter((a)=>{
+    return !(a.name==name)
+  });
+  for(let i=0; i<resultArr.length; i++){
+    resultArr[i].id=i;
+  }
+  return resultArr
+}
+const test=removeProd("Camera");
+console.log(test)
