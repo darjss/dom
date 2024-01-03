@@ -30,24 +30,59 @@
   justify-content: space-evenly;
   padding: 50px 0;
 }
-.add{
-    text-align: left;
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+.add {
+  text-align: left;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
-.add:hover{
-    background-color: bisque;
-    transition: 0.5s;
+.add:hover {
+  background-color: bisque;
+  transition: 0.5s;
 }
-.form{
-    width: 400px;
-    height: 500px;
-    position: absolute;
-    top: 100px;
-    background-color: blueviolet;
+.form {
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  top: 100px;
+  background-color: floralwhite;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+  padding: 10px;
+}
+.addButton {
+  background-color: black;
+  padding: 5px;
+  color: aliceblue;
+}
+.task {
+  border: solid saddlebrown 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.butCont {
+  display: flex;
+  gap: 10px;
+}
+.but {
+  border: 1px solid black;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 3px;
 }
