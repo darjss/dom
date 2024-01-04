@@ -1,14 +1,14 @@
 const root = document.querySelector("#root");
 const text = document.createElement("p");
-text.innerText = "Done";
+
 root.appendChild(text);
 let arr = [];
 let count = 0;
+text.innerText = count;
 const total = 9;
 let intervalId;
 const boxCreate = (num) => {
   random();
-
   const boxContainer = document.createElement("div");
   boxContainer.className = "boxC";
   root.appendChild(boxContainer);
@@ -46,7 +46,7 @@ const random = () => {
   arr.push(rand);
 };
 const check = (id) => {
-  id == arr[count] ? () : (text.innerText = "Wrong");
+  id == arr[count] ? (flashOrder(arr)) : (null);
   count++;
 };
 boxCreate(total);
