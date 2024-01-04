@@ -19,7 +19,7 @@
   min-height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background-color: beige;
   border-radius: 5px;
   padding: 7px;

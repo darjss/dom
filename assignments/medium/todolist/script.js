@@ -5,7 +5,7 @@ root.appendChild(boardCont);
 let arrName = ["To Do", "In progress", "Stuck", "Done"];
 let priorityArr = ["Low", "Medium", "High"];
 let taskArr = [];
-let count = 2;
+let count = 0;
 let taskCont;
 let dragged;
 let addTask;
@@ -95,6 +95,14 @@ const createBoards = () => {
     let titleText = document.createElement("h2");
     titleText.innerText = arrName[i];
     taskBoard.appendChild(titleText);
+
+    let addbtn = document.createElement("button");
+    addbtn.className = "add";
+    addbtn.innerText = "+ Add card";
+    taskBoard.appendChild(addbtn);
+    addbtn.addEventListener("click", () => {
+      addCard(" ", " ", "To Do", "Low");
+    });
     taskCont = document.createElement("div");
     taskCont.className = "taskContainer";
     taskCont.id = arrName[i];
@@ -110,14 +118,6 @@ const createBoards = () => {
     taskBoard.addEventListener("drop", (e) => {
       e.preventDefault();
       e.target.appendChild(dragged);
-    });
-
-    let addbtn = document.createElement("button");
-    addbtn.className = "add";
-    addbtn.innerText = "+ Add card";
-    taskBoard.appendChild(addbtn);
-    addbtn.addEventListener("click", () => {
-      addCard(" ", " ", "To Do", "Low");
     });
   }
 };
@@ -149,9 +149,11 @@ const displayTasks = (id, title, desc, status, priority) => {
   doneButton.innerText = "✅";
   doneButton.className = "but";
   doneButton.addEventListener("click", () => {
-    let index = taskArr.findIndex((a) => a.id === id);
-    
-    console.log(index);
+    let index = taskArr.map((a, i)=>{
+      a.taskId==id?
+      a.status="Done":
+      null
+    })
     render();
   });
   delButton = document.createElement("button");
@@ -159,10 +161,7 @@ const displayTasks = (id, title, desc, status, priority) => {
   delButton.className = "but";
   delButton.addEventListener("click", () => {
     let index = taskArr.findIndex((a) => a.id === id);
-    console.log(index);
-    console.log(taskArr[index])
     taskArr.splice(index, 1);
-
     render();
   });
   editButton = document.createElement("button");
@@ -197,15 +196,15 @@ const render = () => {
     );
   });
 };
-const edit=(i)=>{
-  addTask.innerText="Edit task";
-  addTask.addEventListener("click", ()=>{
-    return{
+const edit = (i) => {
+  addTask.innerText = "Edit task";
+  addTask.addEventListener("click", () => {
+    return {
       ...taskArr[i],
       title: input.title,
       description: input.description,
       status: input.status,
-      priority: input.priority
-    }
-  })
-}
+      priority: input.priority,
+    };
+  });
+};

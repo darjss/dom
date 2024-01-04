@@ -1,28 +1,44 @@
 const root = document.querySelector("#root");
-const boxContainer = document.createElement("div");
-boxContainer.className = "boxC";
-root.appendChild(boxContainer);
-let temp = [];
-count = 0;
+let temp = [2, 4, 7, 8];
+let count = 0;
 const total = 9;
+let intervalId;
 const boxCreate = (num) => {
+  const boxContainer = document.createElement("div");
+  boxContainer.className = "boxC";
+  root.appendChild(boxContainer);
   for (let i = 0; i < num; i++) {
     const box = document.createElement("div");
     box.className = "box";
     box.id = i;
     boxContainer.appendChild(box);
     box.addEventListener("click", () => {
-      console.log("lll")
+      makeFlash(1);
     });
   }
+  // const test = () => {
+  //   for (let j = 0; j < temp.length; j++) {
+     
+  //   }
+    // clearInterval(intervalId);
+  // };
+  //  setInterval(() => {
+  //    makeFlash(1);
+  //  }, 1000);
 };
-const makeFlash = (num) => {
-  let rand = Math.floor(Math.random() * num);
-  let randBox = document.getElementById(`${rand}`);
-  randBox.style.backgroundColor = "#fff";
-  setTimeout(()=>{
-      randBox.style.backgroundColor = "rgba(0, 0, 102, 0.5)";
-  },500)
+const makeFlash = (arr) => {
+  // let rand = Math.floor(Math.random() * num);
+  // temp.push(rand);
+  for(let i=0; i<arr.length)
+  let randBox = document.getElementById(`${arr[i]}`);
+  randBox.className = "box white";
+  setInterval(() => {
+    randBox.className = "box";
+    // makeFlash(total);
+  }, 1000);
+
+  count++;
+  // clearTimeout(id);
+  console.log(count);
 };
 boxCreate(total);
-      makeFlash(9);
