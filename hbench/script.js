@@ -17,10 +17,7 @@ const boxCreate = (num) => {
     box.className = "box";
     box.id = i;
     boxContainer.appendChild(box);
-    box.addEventListener("click", (e) => {
-      console.log(e.target.id);
-      check(e.target.id);
-    });
+    box.addEventListener("click", check);
   }
   makeFlash(arr[0]);
 };
@@ -46,7 +43,10 @@ const random = () => {
   arr.push(rand);
 };
 const check = (id) => {
-  id == arr[count] ? (flashOrder(arr)) : (null);
+  id.target.id == arr[count] ? flashOrder(arr) : null;
+  console.log(arr);
   count++;
+  text.innerText = count;
+  
 };
 boxCreate(total);
