@@ -1,12 +1,12 @@
 const root = document.querySelector("#root");
-const text = document.createElement("p");
-
+const text = document.createElement("h1");
 root.appendChild(text);
 let arr = [];
-let count = 0;
-text.innerText = count;
+let order=""
+text.innerText = `Level: ${order.length+1}`;
+let progress = 0;
+let current = "";
 const total = 9;
-let intervalId;
 const boxCreate = (num) => {
   random();
   const boxContainer = document.createElement("div");
@@ -17,9 +17,11 @@ const boxCreate = (num) => {
     box.className = "box";
     box.id = i;
     boxContainer.appendChild(box);
-    box.addEventListener("click", check);
+    box.addEventListener("click", (e) => {
+      check(e.target.id);
+    });
   }
-  makeFlash(arr[0]);
+  flashOrder()
 };
 const makeFlash = (num) => {
   let randBox = document.getElementById(`${num}`);
@@ -27,26 +29,51 @@ const makeFlash = (num) => {
   setInterval(() => {
     randBox.className = "box";
   }, 1000);
-
-  console.log(count);
+  console.log(num);
 };
-const flashOrder = (arr) => {
-  random();
-  for (let i = 0; i < arr.length; i++) {
+const flashOrder = () => {
+  for (let i = 0; i < order.length; i++) {
     setTimeout(() => {
-      makeFlash(arr[i]);
+      makeFlash(order[i]);
     }, 1000 * (i + 1));
   }
+  console.log(order);
 };
 const random = () => {
   let rand = Math.floor(Math.random() * 9);
-  arr.push(rand);
+  order+=Number(rand);
 };
 const check = (id) => {
-  id.target.id == arr[count] ? flashOrder(arr) : null;
-  console.log(arr);
-  count++;
-  text.innerText = count;
-  
+  current += id;
+      if (id == order[progress]) {
+    progress++;
+    text.innerText = `Level: ${order.length+1}`;
+      } else {
+        endGame();
+      }
+  if (progress == order.length) {
+           if (current==order) {
+    random();
+     flashOrder();
+             current = "";
+             progress = 0;
+   } 
+      }
+
+  //  if(id == order[order.length-1]) {
+  //     text.innerText = "wrong";
+  // }
+
+  console.log("count", progress);
+    console.log(current)
 };
+const endGame = () => {
+  root.innerHTML = "";
+  text.innerText = `You reached level ${order.length}`;
+  root.appendChild(text);
+  newGame= document.createElement("div");
+  newGame.className = "newButton";
+  newGame.innerText = "New Game";
+  root.appendChild(newGame);
+}
 boxCreate(total);

@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
 }
+h1{
+  color: aliceblue;
+}
 .container {
   width: 100vw;
   height: 100vh;
@@ -10,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .boxC {
   width: 520px;
@@ -28,4 +32,9 @@
 }
 .white{
   background-color: azure;
+}
+.newButton{
+  width: 100px;
+  height: 50px;
+
 }
