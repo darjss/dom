@@ -3,11 +3,13 @@ const text = document.createElement("h1");
 root.appendChild(text);
 let arr = [];
 let order=""
-text.innerText = `Level: ${order.length+1}`;
 let progress = 0;
 let current = "";
 const total = 9;
 const boxCreate = (num) => {
+  root.innerHTML = "";
+  text.innerText = `Level: ${order.length+1}`;  
+  root.appendChild(text);
   random();
   const boxContainer = document.createElement("div");
   boxContainer.className = "boxC";
@@ -47,23 +49,19 @@ const check = (id) => {
   current += id;
       if (id == order[progress]) {
     progress++;
-    text.innerText = `Level: ${order.length+1}`;
+
       } else {
         endGame();
       }
   if (progress == order.length) {
            if (current==order) {
+            text.innerText = `Level: ${order.length+1}`;
     random();
      flashOrder();
              current = "";
              progress = 0;
    } 
       }
-
-  //  if(id == order[order.length-1]) {
-  //     text.innerText = "wrong";
-  // }
-
   console.log("count", progress);
     console.log(current)
 };
@@ -75,5 +73,15 @@ const endGame = () => {
   newGame.className = "newButton";
   newGame.innerText = "New Game";
   root.appendChild(newGame);
+  newGame.addEventListener("click", ()=>{
+    boxCreate(total);
+  })
 }
-boxCreate(total);
+const selectGame=()=>{
+  let seqMem=document.createElement("div");
+  seqMem.className="gameOpt";
+  root.appendChild(seqMem);
+  seqMem.innerHTML=`<svg width="128" height="100" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" style="padding: 20px;"><title>Sequence Memory</title><rect width="58" height="58" rx="10" fill="currentcolor"></rect><rect x="70" width="58" height="58" rx="10" fill="currentcolor"></rect><rect y="70" width="58" height="58" rx="10" fill="currentcolor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M118 80H80L80 118H118V80ZM80 70C74.4772 70 70 74.4772 70 80V118C70 123.523 74.4772 128 80 128H118C123.523 128 128 123.523 128 118V80C128 74.4772 123.523 70 118 70H80Z" fill="currentcolor"></path></svg>`
+  let 
+}
+selectGame();
